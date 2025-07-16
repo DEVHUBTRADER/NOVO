@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         
         {/* Rota administrativa protegida */}
-        <Route path="/admin" element={<AdminRoute />} />
+        <Route path="/dezsaudefarma.com.br/admin" element={<AdminRoute />} />
         
         {/* Redirect qualquer rota inválida para home */}
         <Route path="*" element={<Navigate to="/" replace />} />

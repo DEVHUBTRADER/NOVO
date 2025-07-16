@@ -50,7 +50,7 @@ export function LandingPage() {
                 <span className="text-sm font-medium">0800 123 4567</span>
               </div>
               <a 
-                href="/admin" 
+                href="/dezsaudefarma.com.br/admin" 
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
               >
                 Área Administrativa
