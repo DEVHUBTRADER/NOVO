@@ -116,7 +116,7 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
           Rede Hospitalar em {city}
         </h3>
         <div className="space-y-3">
-          {currentLocation.hospitals.map((hospital, index) => (
+          {currentLocation.hospitals.slice(0, 3).map((hospital, index) => (
             <div key={index} className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg">
               <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
                 <Award className="h-5 w-5 text-red-600" />
@@ -127,6 +127,80 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
               </div>
             </div>
           ))}
+          
+          {/* Hospitais Públicos e de Baixa Renda */}
+          <div className="mt-6">
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">
+              Hospitais Públicos e SUS
+            </h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                "Hospital Municipal Dr. Arthur Ribeiro de Saboya",
+                "Hospital Municipal do Tatuapé",
+                "Hospital Municipal Tide Setúbal",
+                "Hospital Municipal Prof. Mário Degni",
+                "Hospital Municipal Infantil Menino Jesus",
+                "Hospital Municipal Dr. José Soares Hungria",
+                "Hospital Municipal Vereador José Storopolli",
+                "Hospital Municipal Dr. Fernando Mauro Pires da Rocha",
+                "Hospital Municipal Dr. Ignácio Proença de Gouvêa",
+                "Hospital Municipal Dr. Moyses Deutsch",
+                "Hospital Municipal Doutor Carmino Caricchio",
+                "Hospital Municipal Vila Santa Catarina",
+                "Hospital Municipal Cidade Tiradentes",
+                "Hospital Municipal do Campo Limpo",
+                "Hospital Municipal M'Boi Mirim",
+                "Hospital Municipal Dr. Benedito Montenegro",
+                "Hospital Municipal Doutor Alexandre Zaio",
+                "Hospital Municipal Dr. Waldomiro de Paula",
+                "Hospital Municipal Doutor José Pangella",
+                "Hospital Municipal Doutor Alípio Corrêa Netto"
+              ].map((hospital, index) => (
+                <div key={index} className="flex items-center space-x-2 p-3 bg-blue-50 rounded-lg">
+                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                    <Award className="h-3 w-3 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{hospital}</p>
+                    <p className="text-xs text-blue-600">Atendimento SUS</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* UPAs e Pronto Socorros */}
+          <div className="mt-6">
+            <h4 className="text-lg font-semibold text-gray-900 mb-3">
+              UPAs e Pronto Socorros 24h
+            </h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                "UPA Zona Leste - Vila Alpina",
+                "UPA Zona Sul - Jabaquara",
+                "UPA Centro - Sé",
+                "UPA Zona Norte - Vila Maria",
+                "Pronto Socorro Municipal - Brás",
+                "Pronto Socorro do Tatuapé",
+                "Pronto Socorro da Mooca",
+                "Pronto Socorro Vila Maria",
+                "Pronto Socorro Sapopemba",
+                "Pronto Socorro Campo Limpo",
+                "Pronto Socorro Cidade Ademar",
+                "Pronto Socorro Vila Prudente"
+              ].map((upa, index) => (
+                <div key={index} className="flex items-center space-x-2 p-3 bg-green-50 rounded-lg">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                    <Award className="h-3 w-3 text-green-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{upa}</p>
+                    <p className="text-xs text-green-600">Emergência 24h</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
