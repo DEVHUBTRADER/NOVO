@@ -47,14 +47,8 @@ export function LandingPage() {
             <div className="flex items-center space-x-6">
               <div className="hidden md:flex items-center space-x-2 text-blue-600">
                 <Phone className="h-4 w-4" />
-                <span className="text-sm font-medium">0800 123 4567</span>
+                <span className="text-sm font-medium">EMERGÊNCIA 24h: 0800 580 0293</span>
               </div>
-              <a 
-                href="/admin" 
-                className="text-sm text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Área Administrativa
-              </a>
             </div>
           </div>
         </div>
