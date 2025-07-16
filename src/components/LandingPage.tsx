@@ -282,23 +282,19 @@ export function LandingPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Plano Mensal */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 relative">
+            <div className="bg-white rounded-2xl shadow-lg p-8 relative mx-auto max-w-sm">
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Mensal</h3>
                 <div className="flex items-baseline justify-center">
                   <span className="text-4xl font-bold text-gray-900">R$ 59,90</span>
                   <span className="text-gray-600 ml-2">/mês</span>
                 </div>
-                <div className="mt-2 px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium inline-block">
-                  🔥 Oferta Mensal Especial
+                <div className="mt-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium inline-block">
+                  ✅ Plano Completo
                 </div>
               </div>
 
               <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700"><strong>10% OFF</strong> no débito automático</span>
-                </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <span className="text-gray-700"><strong>Atendimento 24h</strong> em São Paulo</span>
@@ -306,6 +302,14 @@ export function LandingPage() {
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
                   <span className="text-gray-700"><strong>Mais de 40</strong> emergências cobertas</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <span className="text-gray-700"><strong>Orientação médica</strong> por telefone</span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <span className="text-gray-700"><strong>Rede credenciada</strong> em São Paulo</span>
                 </li>
               </ul>
 
@@ -317,101 +321,12 @@ export function LandingPage() {
                 Contratar Agora
               </button>
             </div>
-
-            {/* Plano Anual */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 relative border-2 border-green-500">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  20% OFF
-                </div>
-              </div>
-              
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Anual</h3>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-gray-900">R$ 47,92</span>
-                  <span className="text-gray-600 ml-2">/mês</span>
-                </div>
-                <p className="text-green-600 font-medium mt-1">Economize R$ 11,98</p>
-                <div className="mt-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium inline-block">
-                  🎯 Oferta Especial
-                </div>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700"><strong>+5% OFF</strong> no débito automático</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">💰 <strong>PIX disponível</strong> para pagamento à vista</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">Todos os <strong>benefícios</strong> do plano mensal</span>
-                </li>
-              </ul>
-
-              <button 
-                onClick={() => setCurrentStep(2)}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-                aria-label="Contratar Plano Anual Dez Saúde com 20% de desconto"
-              >
-                Contratar Agora
-              </button>
-            </div>
-
-            {/* Plano Bianual */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 relative">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <div className="bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  40% OFF
-                </div>
-              </div>
-              
-              <div className="text-center mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">Bianual</h3>
-                <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-gray-900">R$ 35,94</span>
-                  <span className="text-gray-600 ml-2">/mês</span>
-                </div>
-                <p className="text-purple-600 font-medium mt-1">Economize R$ 23,96</p>
-                <div className="mt-2 px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium inline-block">
-                  🎯 Oferta Especial
-                </div>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">+5% OFF no débito automático</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">💰 PIX disponível para pagamento à vista</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">Máxima economia</span>
-                </li>
-              </ul>
-
-              <button 
-                onClick={() => setCurrentStep(2)}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
-                aria-label="Contratar Plano Bianual Dez Saúde com 40% de desconto"
-              >
-                Contratar Agora
-              </button>
-            </div>
           </div>
 
-          <div className="text-center mt-12">
-            <div className="bg-white rounded-lg p-6 inline-block shadow-lg">
-              <p className="text-gray-700 mb-2">💳 <strong>Plano Mensal:</strong> 10% OFF no débito automático</p>
-              <p className="text-gray-700">💰 <strong>Planos Anuais:</strong> PIX disponível + 5% OFF no débito automático</p>
-            </div>
+          <div className="text-center mt-8">
+            <p className="text-gray-600">
+              💰 <strong>Pagamento facilitado:</strong> Cartão, PIX ou boleto disponíveis
+            </p>
           </div>
         </div>
       </section>

@@ -12,8 +12,17 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
     "São Paulo": {
       coverage: "Atendemos toda a capital paulista com tempo de resposta otimizado",
       hospitals: ["Hospital das Clínicas", "Hospital Sírio-Libanês", "Hospital Albert Einstein"],
-      neighborhoods: ["Centro", "Vila Madalena", "Moema", "Itaim Bibi", "Pinheiros", "Jardins"],
-      emergencyTime: "15-20 minutos",
+      neighborhoods: [
+        // Zona Leste
+        "Brás", "Mooca", "Tatuapé", "Vila Formosa", "Penha", "Vila Matilde", 
+        "Belém", "Carrão", "Vila Prudente", "Sapopemba", "São Mateus",
+        // Zona Sul  
+        "Vila Mariana", "Ipiranga", "Saúde", "Cursino", "Vila Clementino",
+        "Jabaquara", "Santo Amaro", "Campo Belo", "Brooklin", "Moema",
+        // Centro
+        "Sé", "República", "Liberdade", "Bela Vista", "Consolação",
+        "Santa Cecília", "Bom Retiro", "Cambuci", "Aclimação"
+      ],
       population: "12 milhões de habitantes",
       description: "São Paulo, a maior metrópole do Brasil, conta com a cobertura completa do Plano Dez Saúde para emergências médicas 24h."
     },

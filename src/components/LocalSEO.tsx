@@ -15,10 +15,10 @@ export function LocalSEO({ page = 'home', pharmacy }: LocalSEOProps) {
   const businessData = {
     name: "Dez Saúde - Emergências Médicas",
     address: {
-      streetAddress: "Rua das Palmeiras, 123",
+      streetAddress: "R. Carneiro Leão, 670 - Brás",
       addressLocality: "São Paulo",
       addressRegion: "SP",
-      postalCode: "01234-567",
+      postalCode: "03102-050",
       addressCountry: "BR"
     },
     phone: "+55 11 0800-580-0293",

@@ -12,11 +12,11 @@ export function NAPConsistency({ variant = 'contact', showIcons = true, classNam
   const napData = {
     name: "Dez Saúde - Emergências Médicas",
     address: {
-      full: "Rua das Palmeiras, 123, São Paulo - SP, 01234-567",
-      street: "Rua das Palmeiras, 123",
+      full: "R. Carneiro Leão, 670 - Brás, São Paulo - SP, 03102-050",
+      street: "R. Carneiro Leão, 670",
       city: "São Paulo",
       state: "SP",
-      zip: "01234-567"
+      zip: "03102-050"
     },
     phone: {
       display: "(11) 0800-580-0293",
