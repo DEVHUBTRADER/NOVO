@@ -214,7 +214,7 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
 
           <div className="mt-6 p-4 bg-blue-50 rounded-lg">
             <p className="text-sm text-blue-800">
-              <strong>Importante:</strong> Guarde este número para emergências: <strong>0800 123 4567</strong>
+              <strong>Importante:</strong> Guarde este número para emergências: <strong>0800 580 0293</strong>
             </p>
             
             {redirecting && (
