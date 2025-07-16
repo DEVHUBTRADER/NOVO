@@ -280,7 +280,7 @@ export function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex justify-center">
             {/* Plano Mensal */}
             <div className="bg-white rounded-2xl shadow-lg p-8 relative mx-auto max-w-sm">
               <div className="text-center mb-6">
