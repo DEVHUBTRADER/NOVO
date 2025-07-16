@@ -94,8 +94,8 @@ export function LandingPage() {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Emergências médicas 24h em 
-                <span className="text-blue-600"> São Paulo</span>
+                Emergências médicas 24h<br/>
+                em <span className="text-blue-600">São Paulo</span>
               </h1>
               
               <p className="text-xl text-gray-600 mb-4 leading-relaxed">
