@@ -197,7 +197,7 @@ export function LandingPage() {
                       <h4 className="font-semibold text-blue-900 mb-2">São Paulo Capital</h4>
                       <p className="text-blue-700 text-sm">
                         <strong>Todas as regiões</strong> da capital.<br/>
-                        Tempo de resposta: <strong>15-20 minutos</strong>.
+                        <strong>Cobertura completa</strong> em toda a cidade.
                       </p>
                     </div>
                     
@@ -205,7 +205,7 @@ export function LandingPage() {
                       <h4 className="font-semibold text-green-900 mb-2">Grande São Paulo</h4>
                       <p className="text-green-700 text-sm">
                         <strong>ABC, Guarulhos, Osasco</strong> e mais cidades.<br/>
-                        Tempo de resposta: <strong>20-25 minutos</strong>.
+                        <strong>Atendimento 24h</strong> em toda a região.
                       </p>
                     </div>
                   </div>
