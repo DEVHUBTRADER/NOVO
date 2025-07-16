@@ -146,7 +146,7 @@ export function LocalSEO({ page = 'home', pharmacy }: LocalSEOProps) {
           "priceCurrency": "BRL",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "59.90",
+            "price": "59.00",
             "priceCurrency": "BRL",
             "unitText": "MONTH"
           }
@@ -162,7 +162,7 @@ export function LocalSEO({ page = 'home', pharmacy }: LocalSEOProps) {
           "priceCurrency": "BRL",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "47.92",
+            "price": "47.20",
             "priceCurrency": "BRL",
             "unitText": "MONTH"
           }
@@ -283,7 +283,7 @@ export function LocalSEO({ page = 'home', pharmacy }: LocalSEOProps) {
         "name": "O Plano Dez Saúde atende em São Paulo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sim, o Plano Dez Saúde atende em toda São Paulo capital e Grande São Paulo, incluindo ABC, Guarulhos, Osasco e Barueri, com atendimento de emergências médicas 24 horas."
+          "text": "Sim, o Plano Dez Saúde atende em toda São Paulo capital e Grande São Paulo, incluindo ABC, Guarulhos, Osasco e Barueri, com atendimento de emergências médicas 24 horas a partir de R$ 59,00/mês."
         }
       },
       {
@@ -291,7 +291,7 @@ export function LocalSEO({ page = 'home', pharmacy }: LocalSEOProps) {
         "name": "Qual o preço do Plano Dez Saúde em São Paulo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "O Plano Dez Saúde em São Paulo custa a partir de R$ 59,90 por mês no plano mensal, com descontos de até 40% nos planos anuais e bianuais."
+          "text": "O Plano Dez Saúde em São Paulo custa a partir de R$ 59,00 por mês no plano mensal, com descontos de até 40% nos planos anuais e bianuais."
         }
       },
       {

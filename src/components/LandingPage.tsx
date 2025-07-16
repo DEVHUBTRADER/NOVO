@@ -104,7 +104,7 @@ export function LandingPage() {
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 ✅ Atendimento médico 24h em São Paulo<br/>
                 ✅ Mais de 40 emergências cobertas<br/>
-                ✅ A partir de R$ 59,90 por mês
+                ✅ A partir de R$ 59,00 por mês
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
@@ -141,7 +141,7 @@ export function LandingPage() {
                 
                 <div className="flex items-center space-x-2 text-gray-600">
                   <span className="text-sm">A partir de</span>
-                  <span className="text-2xl font-bold text-green-600">R$ 59,90</span>
+                  <span className="text-2xl font-bold text-green-600">R$ 59,00</span>
                   <span className="text-sm">/mês</span>
                 </div>
               </div>
@@ -256,7 +256,7 @@ export function LandingPage() {
               <div className="mt-6 p-4 bg-white rounded-lg">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-600">Planos a partir de</span>
-                  <span className="text-lg font-bold text-green-600">R$ 59,90</span>
+                  <span className="text-lg font-bold text-green-600">R$ 59,00</span>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">Proteção de urgência e emergência 24h</p>
               </div>
@@ -276,7 +276,7 @@ export function LandingPage() {
               <strong>Escolha seu plano</strong> de emergências médicas.
             </p>
             <p className="text-base text-gray-600">
-              Proteção 24h para toda família em São Paulo.
+              Proteção 24h para toda família em São Paulo a partir de R$ 59,00/mês.
             </p>
           </div>
 
@@ -286,7 +286,7 @@ export function LandingPage() {
               <div className="text-center mb-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Mensal</h3>
                 <div className="flex items-baseline justify-center">
-                  <span className="text-4xl font-bold text-gray-900">R$ 59,90</span>
+                  <span className="text-4xl font-bold text-gray-900">R$ 59,00</span>
                   <span className="text-gray-600 ml-2">/mês</span>
                 </div>
                 <div className="mt-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium inline-block">
