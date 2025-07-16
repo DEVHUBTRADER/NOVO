@@ -38,21 +38,47 @@ export function useAuth() {
   }, []);
 
   const signOut = async () => {
+    console.log('🚪 Iniciando logout...');
+    setLoading(true);
+    
     try {
-      setLoading(true);
+      // 1. Fazer logout no Supabase
+      console.log('🔐 Fazendo logout no Supabase...');
       const { error } = await supabase.auth.signOut();
+      
       if (error) {
-        console.error('Erro ao fazer logout:', error);
-        throw error;
+        console.error('❌ Erro no logout Supabase:', error);
+        // Mesmo com erro, continuar com limpeza local
+      } else {
+        console.log('✅ Logout Supabase realizado');
       }
       
-      // Limpar dados locais
+      // 2. Limpar estado local imediatamente
+      console.log('🧹 Limpando estado local...');
       setUser(null);
       
-      // Recarregar página para garantir limpeza completa
-      window.location.reload();
+      // 3. Limpar localStorage se houver dados
+      try {
+        localStorage.clear();
+        sessionStorage.clear();
+        console.log('✅ Storage limpo');
+      } catch (storageError) {
+        console.warn('⚠️ Erro ao limpar storage:', storageError);
+      }
+      
+      // 4. Redirecionar para página de login
+      console.log('🔄 Redirecionando...');
+      window.location.href = '/admin';
+      
     } catch (error) {
-      console.error('Erro no logout:', error);
+      console.error('❌ Erro crítico no logout:', error);
+      
+      // Fallback: forçar limpeza e redirecionamento
+      setUser(null);
+      localStorage.clear();
+      sessionStorage.clear();
+      window.location.href = '/admin';
+      
     } finally {
       setLoading(false);
     }
