@@ -224,32 +224,32 @@ export function LandingPage() {
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
                     <MapPin className="h-4 w-4 text-blue-600" />
                   </div>
-                  <p className="font-semibold text-gray-900">São Paulo</p>
-                  <p className="text-xs text-gray-600">Capital</p>
+                  <p className="font-semibold text-gray-900">Zona Leste</p>
+                  <p className="text-xs text-gray-600">Brás, Mooca, Tatuapé</p>
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg text-center">
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2">
                     <MapPin className="h-4 w-4 text-green-600" />
                   </div>
-                  <p className="font-semibold text-gray-900">ABC</p>
-                  <p className="text-xs text-gray-600">Grande SP</p>
+                  <p className="font-semibold text-gray-900">Zona Sul</p>
+                  <p className="text-xs text-gray-600">Ipiranga, Saúde, Moema</p>
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg text-center">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-2">
                     <MapPin className="h-4 w-4 text-purple-600" />
                   </div>
-                  <p className="font-semibold text-gray-900">Guarulhos</p>
-                  <p className="text-xs text-gray-600">Grande SP</p>
+                  <p className="font-semibold text-gray-900">Centro</p>
+                  <p className="text-xs text-gray-600">Sé, República, Liberdade</p>
                 </div>
                 
                 <div className="bg-white p-4 rounded-lg text-center">
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
                     <MapPin className="h-4 w-4 text-blue-600" />
                   </div>
-                  <p className="font-semibold text-gray-900">Osasco</p>
-                  <p className="text-xs text-gray-600">Grande SP</p>
+                  <p className="font-semibold text-gray-900">Grande SP</p>
+                  <p className="text-xs text-gray-600">ABC, Guarulhos, Osasco</p>
                 </div>
               </div>
 
