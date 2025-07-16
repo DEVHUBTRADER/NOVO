@@ -6,11 +6,32 @@ import { LeadForm } from './LeadForm';
 import { LocalSEO } from './LocalSEO';
 import { NAPConsistency } from './NAPConsistency';
 import { LocalContent } from './LocalContent';
+import { OptimizedImage } from './ImageOptimizer';
+import { ImageSEO } from './ImageSEO';
 
 export function LandingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedPharmacy, setSelectedPharmacy] = useState<any>(null);
 
+  // Imagens otimizadas para SEO
+  const pageImages = [
+    {
+      url: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg",
+      alt: "Médico e enfermeira do Plano Dez Saúde atendendo emergência médica em São Paulo",
+      title: "Equipe médica Dez Saúde - Atendimento 24h São Paulo",
+      caption: "Profissionais especializados em emergências médicas 24h",
+      width: 800,
+      height: 600
+    },
+    {
+      url: "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg",
+      alt: "Ambulância do Plano Dez Saúde atendendo emergência em São Paulo",
+      title: "Ambulância Dez Saúde - Emergências São Paulo",
+      caption: "Atendimento rápido em emergências médicas",
+      width: 800,
+      height: 600
+    }
+  ];
   const handlePharmacySelect = (pharmacy: any) => {
     setSelectedPharmacy(pharmacy);
     setCurrentStep(3);
@@ -44,6 +65,13 @@ export function LandingPage() {
     <div className="min-h-screen bg-white">
       {/* SEO Local e Structured Data */}
       <LocalSEO page="home" />
+      
+      {/* SEO para Imagens */}
+      <ImageSEO 
+        images={pageImages}
+        pageTitle="Plano Dez Saúde São Paulo - Emergências Médicas 24h"
+        pageUrl="https://dezsaudefarma.com.br/"
+      />
       
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
@@ -120,11 +148,21 @@ export function LandingPage() {
             </div>
 
             <div className="relative">
-              <img 
-                src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Profissional de saúde - Médico e enfermeira" 
+              <OptimizedImage
+                src={pageImages[0].url}
+                alt={pageImages[0].alt}
+                title={pageImages[0].title}
                 className="w-full h-96 object-cover rounded-2xl shadow-xl"
+                width={800}
+                height={600}
+                priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
               />
+              
+              {/* Caption para SEO */}
+              <div className="sr-only">
+                <p>{pageImages[0].caption}</p>
+              </div>
             </div>
           </div>
         </div>

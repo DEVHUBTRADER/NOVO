@@ -6,6 +6,8 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { LocalSEO } from './LocalSEO';
 import { NAPConsistency } from './NAPConsistency';
 import { LocalContent } from './LocalContent';
+import { OptimizedImage } from './ImageOptimizer';
+import { ImageSEO } from './ImageSEO';
 
 interface Farmacia {
   id: string;
@@ -28,6 +30,17 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedBairro, setSelectedBairro] = useState('');
 
+  // Imagens das farmácias para SEO
+  const pharmacyImages = [
+    {
+      url: "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg",
+      alt: "Farmácia Droga Leste parceira do Plano Dez Saúde em São Paulo",
+      title: "Farmácia Droga Leste - Parceira Dez Saúde São Paulo",
+      caption: "Rede de farmácias parceiras para contratação do Plano Dez Saúde",
+      width: 800,
+      height: 600
+    }
+  ];
   useEffect(() => {
     loadFarmacias();
   }, []);
@@ -88,6 +101,13 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
       {/* SEO Local */}
       <LocalSEO page="pharmacy" />
+      
+      {/* SEO para Imagens */}
+      <ImageSEO 
+        images={pharmacyImages}
+        pageTitle="Farmácias Droga Leste - Plano Dez Saúde São Paulo"
+        pageUrl="https://dezsaudefarma.com.br/farmacias"
+      />
       
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
