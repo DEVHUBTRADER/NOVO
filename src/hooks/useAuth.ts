@@ -39,12 +39,22 @@ export function useAuth() {
 
   const signOut = async () => {
     try {
+      setLoading(true);
       const { error } = await supabase.auth.signOut();
       if (error) {
         console.error('Erro ao fazer logout:', error);
+        throw error;
       }
+      
+      // Limpar dados locais
+      setUser(null);
+      
+      // Recarregar página para garantir limpeza completa
+      window.location.reload();
     } catch (error) {
       console.error('Erro no logout:', error);
+    } finally {
+      setLoading(false);
     }
   };
 

@@ -303,7 +303,7 @@ export function AdminPanel() {
               <span className="text-sm text-gray-600">Painel Administrativo</span>
               <button
                 onClick={signOut}
-                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors px-3 py-2 rounded-lg hover:bg-red-50"
               >
                 <LogOut className="h-5 w-5" />
                 <span>Sair</span>
