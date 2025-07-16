@@ -49,12 +49,13 @@ interface Lead {
 }
 
 export function AdminPanel() {
-  const { signOut } = useAuth();
+  const { signOut, loading: authLoading } = useAuth();
   const [activeTab, setActiveTab] = useState('leads');
   const [farmacias, setFarmacias] = useState<Farmacia[]>([]);
   const [funcionarios, setFuncionarios] = useState<Funcionario[]>([]);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loggingOut, setLoggingOut] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterCity, setFilterCity] = useState('');
   const [filterVerified, setFilterVerified] = useState('');
@@ -232,6 +233,33 @@ export function AdminPanel() {
     }
   };
 
+  const handleLogout = async () => {
+    console.log('🚪 Botão de logout clicado');
+    
+    if (loggingOut) {
+      console.log('⏳ Logout já em andamento...');
+      return;
+    }
+    
+    const confirmLogout = confirm('Tem certeza que deseja sair do painel administrativo?');
+    if (!confirmLogout) {
+      console.log('❌ Logout cancelado pelo usuário');
+      return;
+    }
+    
+    setLoggingOut(true);
+    
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('❌ Erro no handleLogout:', error);
+      // Fallback: redirecionar mesmo com erro
+      window.location.href = '/admin';
+    } finally {
+      setLoggingOut(false);
+    }
+  };
+
   const exportLeads = () => {
     const csvContent = [
       ['Nome', 'Email', 'Telefone', 'Verificado', 'Idade', 'Familiares', 'Telemedicina', 'Farmácia', 'Funcionário', 'Data'],
@@ -302,11 +330,21 @@ export function AdminPanel() {
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">Painel Administrativo</span>
               <button
-                onClick={signOut}
-                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors px-3 py-2 rounded-lg hover:bg-red-50"
+                onClick={handleLogout}
+                disabled={loggingOut || authLoading}
+                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors px-3 py-2 rounded-lg hover:bg-red-50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <LogOut className="h-5 w-5" />
-                <span>Sair</span>
+                {loggingOut ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-red-600"></div>
+                    <span>Saindo...</span>
+                  </>
+                ) : (
+                  <>
+                    <LogOut className="h-5 w-5" />
+                    <span>Sair</span>
+                  </>
+                )}
               </button>
             </div>
           </div>
