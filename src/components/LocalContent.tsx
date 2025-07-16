@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Users, Clock, Shield, Star, Award } from 'lucide-react';
+import { MapPin, Users, Clock, Shield, Star, Award, ChevronDown, ChevronUp, Stethoscope, Ambulance } from 'lucide-react';
 
 interface LocalContentProps {
   city?: string;
@@ -7,6 +7,15 @@ interface LocalContentProps {
 }
 
 export function LocalContent({ city = "São Paulo", neighborhood }: LocalContentProps) {
+  const [expandedSections, setExpandedSections] = React.useState<Record<string, boolean>>({});
+
+  const toggleSection = (section: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
   // Conteúdo específico por localização
   const locationData = {
     "São Paulo": {
@@ -116,12 +125,56 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
           Rede Hospitalar em {city}
         </h3>
         
+        {/* Informação sobre atendimento */}
+        <div className="mb-6 p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-lg border border-blue-200">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="flex items-start space-x-3">
+              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <Stethoscope className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-blue-900 mb-2">Atendimento no Local</h4>
+                <p className="text-blue-700 text-sm">
+                  <strong>90% das emergências</strong> são resolvidas no local pela nossa equipe médica especializada, sem necessidade de hospitalização.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-start space-x-3">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <Ambulance className="h-6 w-6 text-green-600" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-green-900 mb-2">Encaminhamento Hospitalar</h4>
+                <p className="text-green-700 text-sm">
+                  <strong>Quando necessário</strong>, nossa equipe encaminha você ao hospital de sua preferência ou ao mais adequado para seu caso.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         {/* Hospitais Particulares Premium */}
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-gray-900 mb-3">
-            Hospitais Particulares Premium
-          </h4>
-          <div className="grid md:grid-cols-2 gap-3">
+          <button
+            onClick={() => toggleSection('premium')}
+            className="w-full flex items-center justify-between p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-colors mb-3"
+          >
+            <div className="flex items-center space-x-3">
+              <Award className="h-5 w-5 text-red-600" />
+              <h4 className="text-lg font-semibold text-gray-900">
+                Hospitais Particulares Premium (20 unidades)
+              </h4>
+            </div>
+            {expandedSections.premium ? (
+              <ChevronUp className="h-5 w-5 text-red-600" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-red-600" />
+            )}
+          </button>
+          
+          {expandedSections.premium && (
+            <div className="grid md:grid-cols-2 gap-3 mb-3">
             {[
               "Hospital das Clínicas - HC FMUSP",
               "Hospital Sírio-Libanês",
@@ -154,15 +207,31 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
 
         {/* Hospitais Particulares Populares */}
         <div className="mb-6">
-          <h4 className="text-lg font-semibold text-gray-900 mb-3">
-            Hospitais Particulares Populares
-          </h4>
-          <div className="grid md:grid-cols-2 gap-3">
+          <button
+            onClick={() => toggleSection('popular')}
+            className="w-full flex items-center justify-between p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors mb-3"
+          >
+            <div className="flex items-center space-x-3">
+              <Award className="h-5 w-5 text-orange-600" />
+              <h4 className="text-lg font-semibold text-gray-900">
+                Hospitais Particulares Populares (20 unidades)
+              </h4>
+            </div>
+            {expandedSections.popular ? (
+              <ChevronUp className="h-5 w-5 text-orange-600" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-orange-600" />
+            )}
+          </button>
+          
+          {expandedSections.popular && (
+            <div className="grid md:grid-cols-2 gap-3 mb-3">
             {[
               "Hospital Brasil - Rede D'Or",
               "Hospital Bartira",
@@ -195,15 +264,31 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
 
           {/* Hospitais Públicos e de Baixa Renda */}
           <div className="mt-6">
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">
-              Hospitais Públicos e SUS
-            </h4>
-            <div className="grid md:grid-cols-2 gap-3">
+            <button
+              onClick={() => toggleSection('public')}
+              className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors mb-3"
+            >
+              <div className="flex items-center space-x-3">
+                <Award className="h-5 w-5 text-blue-600" />
+                <h4 className="text-lg font-semibold text-gray-900">
+                  Hospitais Públicos e SUS (20 unidades)
+                </h4>
+              </div>
+              {expandedSections.public ? (
+                <ChevronUp className="h-5 w-5 text-blue-600" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-blue-600" />
+              )}
+            </button>
+            
+            {expandedSections.public && (
+              <div className="grid md:grid-cols-2 gap-3 mb-3">
               {[
                 "Hospital Municipal Dr. Arthur Ribeiro de Saboya",
                 "Hospital Municipal do Tatuapé",
@@ -236,15 +321,31 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            )}
           </div>
           
           {/* UPAs e Pronto Socorros */}
           <div className="mt-6">
-            <h4 className="text-lg font-semibold text-gray-900 mb-3">
-              UPAs e Pronto Socorros 24h
-            </h4>
-            <div className="grid md:grid-cols-2 gap-3">
+            <button
+              onClick={() => toggleSection('upas')}
+              className="w-full flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors mb-3"
+            >
+              <div className="flex items-center space-x-3">
+                <Award className="h-5 w-5 text-green-600" />
+                <h4 className="text-lg font-semibold text-gray-900">
+                  UPAs e Pronto Socorros 24h (12 unidades)
+                </h4>
+              </div>
+              {expandedSections.upas ? (
+                <ChevronUp className="h-5 w-5 text-green-600" />
+              ) : (
+                <ChevronDown className="h-5 w-5 text-green-600" />
+              )}
+            </button>
+            
+            {expandedSections.upas && (
+              <div className="grid md:grid-cols-2 gap-3 mb-3">
               {[
                 "UPA Zona Leste - Vila Alpina",
                 "UPA Zona Sul - Jabaquara",
@@ -269,7 +370,8 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            )}
           </div>
       </div>
 
