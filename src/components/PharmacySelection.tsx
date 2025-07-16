@@ -3,7 +3,9 @@ import { MapPin, Users, ArrowLeft, Search, Filter } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { DezSaudeLogo } from './Logo';
 import { Breadcrumbs } from './Breadcrumbs';
-import { InternalLinks } from './InternalLinks';
+import { LocalSEO } from './LocalSEO';
+import { NAPConsistency } from './NAPConsistency';
+import { LocalContent } from './LocalContent';
 
 interface Farmacia {
   id: string;
@@ -84,11 +86,15 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      {/* SEO Local */}
+      <LocalSEO page="pharmacy" />
+      
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <DezSaudeLogo size="md" showPartnership={true} />
+            <NAPConsistency variant="header" />
             <button
               onClick={onBack}
               className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
@@ -290,8 +296,15 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
           </div>
         </div>
           
-          <div>
-            <InternalLinks currentPage="pharmacy" />
+          <div className="space-y-6">
+            <NAPConsistency variant="contact" />
+            
+            {/* Conteúdo local baseado na cidade mais comum */}
+            {farmacias.length > 0 && (
+              <LocalContent 
+                city={farmacias[0]?.cidade || "São Paulo"} 
+              />
+            )}
           </div>
         </div>
       </div>

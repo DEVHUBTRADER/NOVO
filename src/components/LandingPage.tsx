@@ -3,7 +3,9 @@ import { Shield, Clock, MapPin, Phone, Users, Heart, Star, CheckCircle, ArrowRig
 import { DezSaudeLogo } from './Logo';
 import { PharmacySelection } from './PharmacySelection';
 import { LeadForm } from './LeadForm';
-import { SEOLinks } from './SEOLinks';
+import { LocalSEO } from './LocalSEO';
+import { NAPConsistency } from './NAPConsistency';
+import { LocalContent } from './LocalContent';
 
 export function LandingPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -40,19 +42,15 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <SEOLinks />
+      {/* SEO Local e Structured Data */}
+      <LocalSEO page="home" />
       
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <DezSaudeLogo size="md" showPartnership={true} />
-            <div className="flex items-center space-x-6">
-              <div className="hidden md:flex items-center space-x-2 text-blue-600">
-                <Phone className="h-4 w-4" />
-                <span className="text-sm font-medium">EMERGÊNCIA 24h: 0800 580 0293</span>
-              </div>
-            </div>
+            <NAPConsistency variant="header" />
           </div>
         </div>
       </header>
@@ -363,6 +361,13 @@ export function LandingPage() {
         </div>
       </section>
 
+      {/* Conteúdo Local Específico */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <LocalContent city="São Paulo" />
+        </div>
+      </section>
+
       {/* Emergências Cobertas */}
       <section id="emergencias" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -474,17 +479,15 @@ export function LandingPage() {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Contato</h3>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Emergência 24h: 0800 580 0293</li>
-                <li>São Paulo e Grande SP</li>
-                <li>contato@dezemergencias.com.br</li>
-              </ul>
+              <NAPConsistency variant="footer" />
             </div>
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Dez Saúde. Todos os direitos reservados.</p>
+            <p>&copy; 2024 Dez Saúde - Emergências Médicas. Todos os direitos reservados.</p>
+            <p className="text-xs mt-2">
+              <NAPConsistency variant="inline" showIcons={false} />
+            </p>
           </div>
         </div>
       </footer>

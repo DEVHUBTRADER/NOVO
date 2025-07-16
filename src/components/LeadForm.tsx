@@ -4,6 +4,8 @@ import { supabase } from '../lib/supabase';
 import { PhoneVerification } from './PhoneVerification';
 import { DezSaudeLogo } from './Logo';
 import { ThankYouPage } from './ThankYouPage';
+import { LocalSEO } from './LocalSEO';
+import { NAPConsistency } from './NAPConsistency';
 
 interface Farmacia {
   id: string;
@@ -275,11 +277,15 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      {/* SEO Local com dados da farmácia */}
+      <LocalSEO page="form" pharmacy={pharmacy} />
+      
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <DezSaudeLogo size="md" showPartnership={true} />
+            <NAPConsistency variant="header" />
             <button
               onClick={onBack}
               className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
@@ -329,6 +335,33 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
             </div>
 
             {/* Benefícios do Plano */}
+            <div className="space-y-6">
+              <NAPConsistency variant="contact" />
+              
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Benefícios do Plano Dez Saúde em {pharmacy.cidade}
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span className="text-gray-700">Atendimento 24h em {pharmacy.cidade}</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span className="text-gray-700">Mais de 40 emergências cobertas</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span className="text-gray-700">Orientação médica por telefone</span>
+                  </li>
+                  <li className="flex items-center space-x-3">
+                    <CheckCircle className="h-5 w-5 text-green-600" />
+                    <span className="text-gray-700">Rede credenciada em São Paulo</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Formulário */}

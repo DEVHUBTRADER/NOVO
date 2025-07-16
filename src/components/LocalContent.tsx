@@ -1,0 +1,181 @@
+import React from 'react';
+import { MapPin, Users, Clock, Shield, Star, Award } from 'lucide-react';
+
+interface LocalContentProps {
+  city?: string;
+  neighborhood?: string;
+}
+
+export function LocalContent({ city = "São Paulo", neighborhood }: LocalContentProps) {
+  // Conteúdo específico por localização
+  const locationData = {
+    "São Paulo": {
+      coverage: "Atendemos toda a capital paulista com tempo de resposta otimizado",
+      hospitals: ["Hospital das Clínicas", "Hospital Sírio-Libanês", "Hospital Albert Einstein"],
+      neighborhoods: ["Centro", "Vila Madalena", "Moema", "Itaim Bibi", "Pinheiros", "Jardins"],
+      emergencyTime: "15-20 minutos",
+      population: "12 milhões de habitantes",
+      description: "São Paulo, a maior metrópole do Brasil, conta com a cobertura completa do Plano Dez Saúde para emergências médicas 24h."
+    },
+    "Santo André": {
+      coverage: "Cobertura completa no ABC paulista",
+      hospitals: ["Hospital Municipal de Santo André", "Hospital Brasil"],
+      neighborhoods: ["Centro", "Vila Assunção", "Jardim"],
+      emergencyTime: "20-25 minutos",
+      population: "720 mil habitantes",
+      description: "Santo André e toda região do ABC contam com atendimento especializado do Plano Dez Saúde."
+    },
+    "Guarulhos": {
+      coverage: "Atendimento especializado na segunda maior cidade de SP",
+      hospitals: ["Hospital Municipal de Guarulhos", "Hospital Stella Maris"],
+      neighborhoods: ["Centro", "Vila Galvão", "Jardim São Paulo"],
+      emergencyTime: "18-22 minutos",
+      population: "1.4 milhão de habitantes",
+      description: "Guarulhos possui cobertura completa do Plano Dez Saúde com atendimento de emergência 24h."
+    }
+  };
+
+  const currentLocation = locationData[city] || locationData["São Paulo"];
+
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-8">
+      <div className="text-center mb-8">
+        <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <MapPin className="h-8 w-8 text-blue-600" />
+        </div>
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          Plano Dez Saúde em {city}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          {currentLocation.description}
+        </p>
+      </div>
+
+      {/* Estatísticas locais */}
+      <div className="grid md:grid-cols-4 gap-6 mb-8">
+        <div className="text-center p-4 bg-blue-50 rounded-lg">
+          <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <Clock className="h-6 w-6 text-blue-600" />
+          </div>
+          <h3 className="font-semibold text-gray-900 mb-1">Tempo Resposta</h3>
+          <p className="text-blue-600 font-bold">{currentLocation.emergencyTime}</p>
+        </div>
+
+        <div className="text-center p-4 bg-green-50 rounded-lg">
+          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <Users className="h-6 w-6 text-green-600" />
+          </div>
+          <h3 className="font-semibold text-gray-900 mb-1">População</h3>
+          <p className="text-green-600 font-bold">{currentLocation.population}</p>
+        </div>
+
+        <div className="text-center p-4 bg-purple-50 rounded-lg">
+          <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <Shield className="h-6 w-6 text-purple-600" />
+          </div>
+          <h3 className="font-semibold text-gray-900 mb-1">Cobertura</h3>
+          <p className="text-purple-600 font-bold">100%</p>
+        </div>
+
+        <div className="text-center p-4 bg-orange-50 rounded-lg">
+          <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+            <Star className="h-6 w-6 text-orange-600" />
+          </div>
+          <h3 className="font-semibold text-gray-900 mb-1">Avaliação</h3>
+          <p className="text-orange-600 font-bold">4.8/5</p>
+        </div>
+      </div>
+
+      {/* Bairros atendidos */}
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          Principais Bairros Atendidos em {city}
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+          {currentLocation.neighborhoods.map((neighborhood, index) => (
+            <div key={index} className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg">
+              <MapPin className="h-4 w-4 text-green-600" />
+              <span className="text-gray-700 font-medium">{neighborhood}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Hospitais parceiros */}
+      <div className="mb-8">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          Rede Hospitalar em {city}
+        </h3>
+        <div className="space-y-3">
+          {currentLocation.hospitals.map((hospital, index) => (
+            <div key={index} className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg">
+              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                <Award className="h-5 w-5 text-red-600" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">{hospital}</p>
+                <p className="text-sm text-gray-600">Parceiro credenciado em {city}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Depoimentos locais */}
+      <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          O que dizem nossos clientes em {city}
+        </h3>
+        <div className="space-y-4">
+          <blockquote className="border-l-4 border-blue-500 pl-4">
+            <p className="text-gray-700 italic">
+              "O atendimento do Plano Dez Saúde em {city} foi excepcional. 
+              Em menos de 20 minutos já estava sendo atendido no hospital."
+            </p>
+            <footer className="text-sm text-gray-600 mt-2">
+              — Maria Silva, moradora de {city}
+            </footer>
+          </blockquote>
+          
+          <blockquote className="border-l-4 border-green-500 pl-4">
+            <p className="text-gray-700 italic">
+              "Recomendo o Plano Dez Saúde para todas as famílias de {city}. 
+              A tranquilidade de ter atendimento 24h não tem preço."
+            </p>
+            <footer className="text-sm text-gray-600 mt-2">
+              — João Santos, empresário em {city}
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+
+      {/* Schema markup para localização */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": `Plano Dez Saúde em ${city}`,
+            "description": `Atendimento de emergências médicas 24h em ${city} e região`,
+            "provider": {
+              "@type": "Organization",
+              "name": "Dez Saúde - Emergências Médicas"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": city,
+              "addressRegion": "SP",
+              "addressCountry": "BR"
+            },
+            "availableChannel": {
+              "@type": "ServiceChannel",
+              "servicePhone": "+551108005800293",
+              "availableLanguage": "Portuguese"
+            }
+          })
+        }}
+      />
+    </div>
+  );
+}
