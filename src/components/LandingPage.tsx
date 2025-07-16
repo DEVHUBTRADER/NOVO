@@ -325,7 +325,7 @@ export function LandingPage() {
 
           <div className="text-center mt-8">
             <p className="text-gray-600">
-              💰 <strong>Pagamento facilitado:</strong> Cartão, PIX ou boleto disponíveis
+              💳 <strong>Plano mensal:</strong> Apenas cartão de crédito
             </p>
           </div>
         </div>
