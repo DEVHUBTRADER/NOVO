@@ -66,12 +66,17 @@ export function LandingPage() {
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Proteção completa para sua família em 
-                <span className="text-blue-600"> São Paulo</span>
+                Emergências médicas 24h em 
+                <span className="text-blue-600">São Paulo</span>
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Plano de assistência médica de urgência e emergência 24h. Sua família protegida com o melhor atendimento médico na cidade de São Paulo e Grande SP.
+              <p className="text-xl text-gray-600 mb-4 leading-relaxed">
+                <strong>Proteja sua família</strong> com o Plano Dez Saúde.
+              </p>
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                ✅ Atendimento médico 24h em São Paulo<br/>
+                ✅ Mais de 40 emergências cobertas<br/>
+                ✅ A partir de R$ 59,90 por mês
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
@@ -130,10 +135,13 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Cobertura Exclusiva em São Paulo e Grande SP
+              Onde Atendemos em São Paulo
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Atendimento especializado na região metropolitana de São Paulo
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              <strong>Cobertura completa</strong> em São Paulo capital e Grande SP.
+            </p>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto mt-2">
+              Tempo de resposta: <strong>15 a 25 minutos</strong> em emergências.
             </p>
           </div>
 
@@ -149,12 +157,18 @@ export function LandingPage() {
                   <div className="space-y-4">
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <h4 className="font-semibold text-blue-900 mb-2">São Paulo Capital</h4>
-                      <p className="text-blue-700 text-sm">Todas as regiões da capital paulista com tempo de resposta otimizado</p>
+                      <p className="text-blue-700 text-sm">
+                        <strong>Todas as regiões</strong> da capital.<br/>
+                        Tempo de resposta: <strong>15-20 minutos</strong>.
+                      </p>
                     </div>
                     
                     <div className="bg-green-50 p-4 rounded-lg">
                       <h4 className="font-semibold text-green-900 mb-2">Grande São Paulo</h4>
-                      <p className="text-green-700 text-sm">ABC, Guarulhos, Osasco, Barueri e principais cidades da região metropolitana</p>
+                      <p className="text-green-700 text-sm">
+                        <strong>ABC, Guarulhos, Osasco</strong> e mais cidades.<br/>
+                        Tempo de resposta: <strong>20-25 minutos</strong>.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -218,10 +232,13 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Planos de Proteção Médica
+              Planos Dez Saúde - Preços
             </h2>
-            <p className="text-xl text-gray-600">
-              Escolha o plano ideal para sua família em São Paulo
+            <p className="text-lg text-gray-600 mb-2">
+              <strong>Escolha seu plano</strong> de emergências médicas.
+            </p>
+            <p className="text-base text-gray-600">
+              Proteção 24h para toda família em São Paulo.
             </p>
           </div>
 
@@ -242,15 +259,15 @@ export function LandingPage() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">10% OFF no débito automático</span>
+                  <span className="text-gray-700"><strong>10% OFF</strong> no débito automático</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">Atendimento 24h</span>
+                  <span className="text-gray-700"><strong>Atendimento 24h</strong> em São Paulo</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">40+ emergências cobertas</span>
+                  <span className="text-gray-700"><strong>Mais de 40</strong> emergências cobertas</span>
                 </li>
               </ul>
 
@@ -286,15 +303,15 @@ export function LandingPage() {
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">+5% OFF no débito automático</span>
+                  <span className="text-gray-700"><strong>+5% OFF</strong> no débito automático</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">💰 PIX disponível para pagamento à vista</span>
+                  <span className="text-gray-700">💰 <strong>PIX disponível</strong> para pagamento à vista</span>
                 </li>
                 <li className="flex items-center space-x-3">
                   <CheckCircle className="h-5 w-5 text-green-600" />
-                  <span className="text-gray-700">Todos os benefícios do plano mensal</span>
+                  <span className="text-gray-700">Todos os <strong>benefícios</strong> do plano mensal</span>
                 </li>
               </ul>
 
@@ -373,10 +390,13 @@ export function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Mais de 40 Emergências Cobertas
+              Emergências Cobertas pelo Plano
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Lista completa de situações de emergência atendidas pelo plano em São Paulo
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+              <strong>Mais de 40 emergências</strong> atendidas 24h.
+            </p>
+            <p className="text-base text-gray-600 max-w-2xl mx-auto">
+              Cobertura completa em São Paulo e Grande SP.
             </p>
           </div>
 
@@ -417,10 +437,13 @@ export function LandingPage() {
       <section id="contato" className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Não deixe sua família desprotegida em São Paulo
+            Proteja sua família hoje mesmo
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
-            Contrate agora e tenha tranquilidade em qualquer emergência na capital e Grande SP
+          <p className="text-lg text-blue-100 mb-4">
+            <strong>Contrate agora</strong> o Plano Dez Saúde.
+          </p>
+          <p className="text-base text-blue-100 mb-8">
+            Tranquilidade em emergências médicas em São Paulo.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-8">

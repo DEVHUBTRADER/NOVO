@@ -59,12 +59,14 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
 
           {/* Título principal */}
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" role="heading" aria-level="2">
-            Parabéns, {customerName}!
+            Parabéns {customerName}!
           </h2>
           
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Seu cadastro no <strong>Plano Dez Saúde</strong> foi realizado com sucesso! 
-            Sua família agora está protegida com atendimento médico de emergência 24h em São Paulo.
+          <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
+            <strong>Cadastro realizado</strong> no Plano Dez Saúde!
+          </p>
+          <p className="text-base text-gray-600 mb-8 max-w-2xl mx-auto">
+            Sua família está protegida com emergências médicas 24h em São Paulo.
           </p>
 
           {/* Status de verificação */}

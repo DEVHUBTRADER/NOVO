@@ -345,19 +345,19 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-gray-700">Atendimento 24h em {pharmacy.cidade}</span>
+                    <span className="text-gray-700"><strong>Atendimento 24h</strong> em {pharmacy.cidade}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-gray-700">Mais de 40 emergências cobertas</span>
+                    <span className="text-gray-700"><strong>Mais de 40</strong> emergências cobertas</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-gray-700">Orientação médica por telefone</span>
+                    <span className="text-gray-700"><strong>Orientação médica</strong> por telefone</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-gray-700">Rede credenciada em São Paulo</span>
+                    <span className="text-gray-700"><strong>Rede credenciada</strong> em São Paulo</span>
                   </li>
                 </ul>
               </div>
@@ -368,7 +368,7 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
           <div>
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6" role="heading" aria-level="2">
-                Conheça o Plano Dez Saúde
+                Contrate o Plano Dez Saúde
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">

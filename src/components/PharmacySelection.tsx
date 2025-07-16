@@ -119,10 +119,13 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
         {/* Título */}
         <div className="text-center mb-12">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            Selecione sua Farmácia Droga Leste
+            Escolha sua Farmácia Droga Leste
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Escolha a farmácia Droga Leste mais próxima de você para contratar o Plano Dez Saúde com atendimento personalizado
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-2">
+            <strong>Encontre a farmácia</strong> mais próxima de você.
+          </p>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
+            Contrate o Plano Dez Saúde com atendimento personalizado.
           </p>
         </div>
 
