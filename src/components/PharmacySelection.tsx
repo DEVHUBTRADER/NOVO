@@ -285,7 +285,7 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
         )}
 
         {/* Informações adicionais */}
-        <div className="mt-12 grid lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid lg:grid-cols-2 gap-8">
           <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-8">
           <div className="text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -319,15 +319,8 @@ export function PharmacySelection({ onPharmacySelect, onBack }: PharmacySelectio
           </div>
         </div>
           
-          <div className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-lg p-8">
             <NAPConsistency variant="contact" />
-            
-            {/* Conteúdo local baseado na cidade mais comum */}
-            {farmacias.length > 0 && (
-              <LocalContent 
-                city={farmacias[0]?.cidade || "São Paulo"} 
-              />
-            )}
           </div>
         </div>
       </div>
