@@ -434,36 +434,10 @@ export function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="bg-gray-900 text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Dez Saúde</h3>
-              <p className="text-gray-400 text-sm">
-                Plano de emergências médicas 24h em São Paulo e Grande SP.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#inicio" className="text-gray-400 hover:text-white transition-colors">Início</a></li>
-                <li><a href="#cobertura" className="text-gray-400 hover:text-white transition-colors">Cobertura</a></li>
-                <li><a href="#precos" className="text-gray-400 hover:text-white transition-colors">Planos</a></li>
-                <li><a href="#emergencias" className="text-gray-400 hover:text-white transition-colors">Emergências</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <NAPConsistency variant="footer" />
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Dez Saúde - Emergências Médicas. Todos os direitos reservados.</p>
-            <p className="text-xs mt-2">
-              <NAPConsistency variant="inline" showIcons={false} />
-            </p>
+          <div className="text-center text-gray-400">
+            <p>&copy; 2025 Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
