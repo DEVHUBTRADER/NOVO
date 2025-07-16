@@ -3,6 +3,7 @@ import { Shield, Clock, MapPin, Phone, Users, Heart, Star, CheckCircle, ArrowRig
 import { DezSaudeLogo } from './Logo';
 import { PharmacySelection } from './PharmacySelection';
 import { LeadForm } from './LeadForm';
+import { SEOLinks } from './SEOLinks';
 
 export function LandingPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -39,6 +40,8 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOLinks />
+      
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,7 +58,7 @@ export function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
+      <section id="inicio" className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -99,6 +102,7 @@ export function LandingPage() {
                 <button 
                   onClick={() => setCurrentStep(2)}
                   className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center space-x-2 text-lg"
+                  aria-label="Contratar Plano Dez Saúde - Emergências Médicas 24h"
                 >
                   <span>Contratar Agora</span>
                   <ArrowRight className="h-5 w-5" />
@@ -124,7 +128,7 @@ export function LandingPage() {
       </section>
 
       {/* Cobertura Section */}
-      <section className="py-20 bg-white">
+      <section id="cobertura" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -212,7 +216,7 @@ export function LandingPage() {
       </section>
 
       {/* Preços Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section id="precos" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -255,6 +259,7 @@ export function LandingPage() {
               <button 
                 onClick={() => setCurrentStep(2)}
                 className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                aria-label="Contratar Plano Mensal Dez Saúde"
               >
                 Contratar Agora
               </button>
@@ -298,6 +303,7 @@ export function LandingPage() {
               <button 
                 onClick={() => setCurrentStep(2)}
                 className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                aria-label="Contratar Plano Anual Dez Saúde com 20% de desconto"
               >
                 Contratar Agora
               </button>
@@ -341,6 +347,7 @@ export function LandingPage() {
               <button 
                 onClick={() => setCurrentStep(2)}
                 className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                aria-label="Contratar Plano Bianual Dez Saúde com 40% de desconto"
               >
                 Contratar Agora
               </button>
@@ -357,7 +364,7 @@ export function LandingPage() {
       </section>
 
       {/* Emergências Cobertas */}
-      <section className="py-20 bg-white">
+      <section id="emergencias" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
@@ -392,6 +399,7 @@ export function LandingPage() {
             <button 
               onClick={() => setCurrentStep(2)}
               className="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors text-lg"
+              aria-label="Contratar Proteção Completa - Plano Dez Saúde"
             >
               Contratar Proteção Completa
             </button>
@@ -401,7 +409,7 @@ export function LandingPage() {
 
       {/* Benefícios */}
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
+      <section id="contato" className="py-20 bg-gradient-to-r from-blue-600 to-green-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Não deixe sua família desprotegida em São Paulo
@@ -436,6 +444,7 @@ export function LandingPage() {
           <button 
             onClick={() => setCurrentStep(2)}
             className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors inline-flex items-center space-x-2"
+            aria-label="Contratar Plano Dez Emergências - Proteção 24h São Paulo"
           >
             <span>Contratar Plano Dez Emergências</span>
             <ArrowRight className="h-5 w-5" />
@@ -446,7 +455,35 @@ export function LandingPage() {
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-gray-400">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Dez Saúde</h3>
+              <p className="text-gray-400 text-sm">
+                Plano de emergências médicas 24h em São Paulo e Grande SP.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Links Rápidos</h3>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#inicio" className="text-gray-400 hover:text-white transition-colors">Início</a></li>
+                <li><a href="#cobertura" className="text-gray-400 hover:text-white transition-colors">Cobertura</a></li>
+                <li><a href="#precos" className="text-gray-400 hover:text-white transition-colors">Planos</a></li>
+                <li><a href="#emergencias" className="text-gray-400 hover:text-white transition-colors">Emergências</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Contato</h3>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li>Emergência 24h: 0800 580 0293</li>
+                <li>São Paulo e Grande SP</li>
+                <li>contato@dezemergencias.com.br</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 Dez Saúde. Todos os direitos reservados.</p>
           </div>
         </div>

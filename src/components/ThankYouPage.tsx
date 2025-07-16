@@ -58,9 +58,9 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
           </div>
 
           {/* Título principal */}
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" role="heading" aria-level="2">
             Parabéns, {customerName}!
-          </h1>
+          </h2>
           
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Seu cadastro no <strong>Plano Dez Saúde</strong> foi realizado com sucesso! 
@@ -82,12 +82,12 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                 <MapPin className="h-5 w-5 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Farmácia Selecionada</h3>
+              <h3 className="text-xl font-bold text-gray-900" role="heading" aria-level="3">Farmácia Droga Leste Selecionada</h3>
             </div>
             
             <div className="space-y-3">
               <div>
-                <h4 className="font-semibold text-gray-900">{pharmacy.nome}</h4>
+                <h4 className="font-semibold text-gray-900" role="heading" aria-level="4">{pharmacy.nome}</h4>
                 <p className="text-gray-600">{pharmacy.endereco}</p>
                 <p className="text-gray-600">{pharmacy.bairro} - {pharmacy.cidade}</p>
               </div>
@@ -106,7 +106,7 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
               <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                 <Heart className="h-5 w-5 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900">Próximos Passos</h3>
+              <h3 className="text-xl font-bold text-gray-900" role="heading" aria-level="3">Próximos Passos Plano Dez Saúde</h3>
             </div>
             
             <div className="space-y-4">
@@ -145,14 +145,14 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
 
         {/* Benefícios do plano */}
         <div className="bg-gradient-to-r from-blue-600 to-green-600 rounded-2xl p-8 text-white mb-8">
-          <h3 className="text-2xl font-bold mb-6 text-center">Sua Família Agora Está Protegida</h3>
+          <h3 className="text-2xl font-bold mb-6 text-center" role="heading" aria-level="3">Sua Família Agora Está Protegida com Dez Saúde</h3>
           
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Clock className="h-6 w-6" />
               </div>
-              <h4 className="font-semibold mb-2">Atendimento 24h</h4>
+              <h4 className="font-semibold mb-2" role="heading" aria-level="4">Atendimento Emergência 24h</h4>
               <p className="text-sm text-blue-100">Emergências médicas a qualquer hora do dia</p>
             </div>
             
@@ -160,7 +160,7 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
               <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <MapPin className="h-6 w-6" />
               </div>
-              <h4 className="font-semibold mb-2">Cobertura SP</h4>
+              <h4 className="font-semibold mb-2" role="heading" aria-level="4">Cobertura São Paulo</h4>
               <p className="text-sm text-blue-100">São Paulo e Grande SP completamente cobertos</p>
             </div>
             
@@ -168,7 +168,7 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
               <div className="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-3">
                 <Phone className="h-6 w-6" />
               </div>
-              <h4 className="font-semibold mb-2">Orientação Médica</h4>
+              <h4 className="font-semibold mb-2" role="heading" aria-level="4">Orientação Médica Dez Saúde</h4>
               <p className="text-sm text-blue-100">Orientação médica imediata por telefone</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ export function ThankYouPage({ customerName, pharmacy, funcionario }: ThankYouPa
 
         {/* Redirecionamento */}
         <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4" role="heading" aria-level="3">
             Conheça Mais Sobre a Dez Saúde
           </h3>
           

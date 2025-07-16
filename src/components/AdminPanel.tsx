@@ -384,7 +384,7 @@ export function AdminPanel() {
             <div className="bg-white rounded-lg shadow-sm p-6">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl font-bold text-gray-900">Leads Cadastrados</h2>
+                  <h2 className="text-2xl font-bold text-gray-900" role="heading" aria-level="2">Leads Cadastrados Dez Saúde</h2>
                   <p className="text-gray-600">Gerencie todos os leads do Plano Dez Saúde</p>
                 </div>
                 
@@ -633,7 +633,7 @@ export function AdminPanel() {
 
             {/* Performance por Funcionário */}
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4" role="heading" aria-level="3">
                 Performance por Funcionário
               </h3>
               <div className="overflow-x-auto">
@@ -697,7 +697,7 @@ export function AdminPanel() {
 
             {/* Performance por Farmácia */}
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4" role="heading" aria-level="3">
                 Performance por Farmácia
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -731,7 +731,7 @@ export function AdminPanel() {
 
             {/* Performance por Cidade */}
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4" role="heading" aria-level="3">
                 Performance por Cidade
               </h3>
               <div className="overflow-x-auto">

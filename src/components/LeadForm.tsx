@@ -296,20 +296,20 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
           {/* Informações da Farmácia */}
           <div>
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6" role="heading" aria-level="2">
                 Farmácia Selecionada
               </h2>
               
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold text-gray-900 text-lg">{pharmacy.nome}</h3>
+                  <h3 className="font-semibold text-gray-900 text-lg" role="heading" aria-level="3">{pharmacy.nome}</h3>
                   <p className="text-gray-600">{pharmacy.endereco}</p>
                   <p className="text-gray-600">{pharmacy.bairro} - {pharmacy.cidade}</p>
                 </div>
 
                 {funcionarios.length > 0 && (
                   <div className="pt-4 border-t border-gray-100">
-                    <h4 className="font-medium text-gray-900 mb-3">Profissionais Disponíveis:</h4>
+                    <h4 className="font-medium text-gray-900 mb-3" role="heading" aria-level="4">Profissionais Disponíveis Dez Saúde:</h4>
                     <div className="space-y-2">
                       {funcionarios.map(funcionario => (
                         <div key={funcionario.id} className="flex items-center space-x-3">
@@ -334,7 +334,7 @@ export function LeadForm({ pharmacy, onComplete, onBack }: LeadFormProps) {
           {/* Formulário */}
           <div>
             <div className="bg-white rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6" role="heading" aria-level="2">
                 Conheça o Plano Dez Saúde
               </h2>
 
