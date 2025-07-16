@@ -115,19 +115,89 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
         <h3 className="text-xl font-bold text-gray-900 mb-4">
           Rede Hospitalar em {city}
         </h3>
-        <div className="space-y-3">
-          {currentLocation.hospitals.slice(0, 3).map((hospital, index) => (
-            <div key={index} className="flex items-center space-x-3 p-4 border border-gray-200 rounded-lg">
-              <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
-                <Award className="h-5 w-5 text-red-600" />
+        
+        {/* Hospitais Particulares Premium */}
+        <div className="mb-6">
+          <h4 className="text-lg font-semibold text-gray-900 mb-3">
+            Hospitais Particulares Premium
+          </h4>
+          <div className="grid md:grid-cols-2 gap-3">
+            {[
+              "Hospital das Clínicas - HC FMUSP",
+              "Hospital Sírio-Libanês",
+              "Hospital Albert Einstein",
+              "Hospital Oswaldo Cruz",
+              "Hospital Santa Catarina",
+              "Hospital São Luiz",
+              "Hospital Beneficência Portuguesa",
+              "Hospital Alemão Oswaldo Cruz",
+              "Hospital Villa-Lobos",
+              "Hospital São Camilo",
+              "Hospital Samaritano",
+              "Hospital 9 de Julho",
+              "Hospital Bandeirantes",
+              "Hospital Santa Paula",
+              "Hospital São Rafael",
+              "Hospital Leforte",
+              "Hospital Moriah",
+              "Hospital Santa Joana",
+              "Hospital Pro Matre Paulista",
+              "Hospital e Maternidade Santa Joana"
+            ].map((hospital, index) => (
+              <div key={index} className="flex items-center space-x-2 p-3 bg-red-50 rounded-lg">
+                <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                  <Award className="h-3 w-3 text-red-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">{hospital}</p>
+                  <p className="text-xs text-red-600">Rede Particular</p>
+                </div>
               </div>
-              <div>
-                <p className="font-semibold text-gray-900">{hospital}</p>
-                <p className="text-sm text-gray-600">Parceiro credenciado em {city}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Hospitais Particulares Populares */}
+        <div className="mb-6">
+          <h4 className="text-lg font-semibold text-gray-900 mb-3">
+            Hospitais Particulares Populares
+          </h4>
+          <div className="grid md:grid-cols-2 gap-3">
+            {[
+              "Hospital Brasil - Rede D'Or",
+              "Hospital Bartira",
+              "Hospital Stella Maris",
+              "Hospital São Cristóvão",
+              "Hospital Nipo-Brasileiro",
+              "Hospital Santa Virgínia",
+              "Hospital São Paulo",
+              "Hospital Metropolitano",
+              "Hospital Santa Lucinda",
+              "Hospital Sancta Maggiore",
+              "Hospital Santa Helena",
+              "Hospital São José",
+              "Hospital Vitória",
+              "Hospital Regional do Brás",
+              "Hospital Santa Cruz",
+              "Hospital São Vicente",
+              "Hospital Regional de Osasco",
+              "Hospital Municipal de Barueri",
+              "Hospital Geral de Guarulhos",
+              "Hospital Regional do ABC"
+            ].map((hospital, index) => (
+              <div key={index} className="flex items-center space-x-2 p-3 bg-orange-50 rounded-lg">
+                <div className="w-6 h-6 bg-orange-100 rounded-full flex items-center justify-center">
+                  <Award className="h-3 w-3 text-orange-600" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">{hospital}</p>
+                  <p className="text-xs text-orange-600">Rede Popular</p>
+                </div>
               </div>
-            </div>
-          ))}
-          
+            ))}
+          </div>
+        </div>
+
           {/* Hospitais Públicos e de Baixa Renda */}
           <div className="mt-6">
             <h4 className="text-lg font-semibold text-gray-900 mb-3">
@@ -201,7 +271,6 @@ export function LocalContent({ city = "São Paulo", neighborhood }: LocalContent
               ))}
             </div>
           </div>
-        </div>
       </div>
 
       {/* Depoimentos locais */}
