@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Users, Building2, UserPlus, Phone, Mail, Calendar, MapPin, Heart, CheckCircle, AlertCircle, LogOut, Download, Filter, Search, Eye, Trash2, Activity, Award } from 'lucide-react';
+import { Users, Building2, UserPlus, Phone, Mail, Calendar, MapPin, Heart, CheckCircle, AlertCircle, LogOut, Download, Filter, Search, Eye, Trash2, Activity, Award, X } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../hooks/useAuth';
 import { DezSaudeLogo } from './Logo';
@@ -64,6 +64,10 @@ export function AdminPanel() {
     farmacias: [],
     cidades: []
   });
+  const [showLeadsModal, setShowLeadsModal] = useState(false);
+  const [selectedFuncionario, setSelectedFuncionario] = useState(null);
+  const [funcionarioLeads, setFuncionarioLeads] = useState([]);
+  const [loadingLeads, setLoadingLeads] = useState(false);
 
   // Estados para formulários
   const [showAddFarmacia, setShowAddFarmacia] = useState(false);
@@ -231,6 +235,39 @@ export function AdminPanel() {
     } catch (error) {
       console.error('Erro ao excluir lead:', error);
     }
+  };
+
+  const loadFuncionarioLeads = async (funcionarioId: string) => {
+    setLoadingLeads(true);
+    try {
+      const { data, error } = await supabase
+        .from('leads')
+        .select(`
+          *,
+          farmacia:farmacias(nome, endereco, bairro, cidade)
+        `)
+        .eq('funcionario_id', funcionarioId)
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      setFuncionarioLeads(data || []);
+    } catch (error) {
+      console.error('Erro ao carregar leads do funcionário:', error);
+    } finally {
+      setLoadingLeads(false);
+    }
+  };
+
+  const openLeadsModal = (funcionario: any) => {
+    setSelectedFuncionario(funcionario);
+    setShowLeadsModal(true);
+    loadFuncionarioLeads(funcionario.id);
+  };
+
+  const closeLeadsModal = () => {
+    setShowLeadsModal(false);
+    setSelectedFuncionario(null);
+    setFuncionarioLeads([]);
   };
 
   const handleLogout = async () => {
@@ -702,6 +739,9 @@ export function AdminPanel() {
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Ranking
                       </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Ações
+                      </th>
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
@@ -737,6 +777,15 @@ export function AdminPanel() {
                               #{index + 1}
                             </span>
                           </div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <button
+                            onClick={() => openLeadsModal(funcionario)}
+                            className="inline-flex items-center px-3 py-1 border border-transparent text-xs font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 transition-colors"
+                          >
+                            <Eye className="h-3 w-3 mr-1" />
+                            Ver Leads
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -1109,6 +1158,116 @@ export function AdminPanel() {
           </div>
         )}
       </div>
+
+      {/* Modal de Leads do Funcionário */}
+      {showLeadsModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden">
+            {/* Header do Modal */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  Leads de {selectedFuncionario?.nome}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {selectedFuncionario?.cargo} - {selectedFuncionario?.farmacias?.nome}
+                </p>
+              </div>
+              <button
+                onClick={closeLeadsModal}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Conteúdo do Modal */}
+            <div className="p-6 overflow-y-auto max-h-[calc(90vh-120px)]">
+              {loadingLeads ? (
+                <div className="flex items-center justify-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                  <span className="ml-2 text-gray-600">Carregando leads...</span>
+                </div>
+              ) : funcionarioLeads.length === 0 ? (
+                <div className="text-center py-8">
+                  <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <h4 className="text-lg font-medium text-gray-900 mb-2">
+                    Nenhum lead encontrado
+                  </h4>
+                  <p className="text-gray-600">
+                    Este funcionário ainda não possui leads atribuídos.
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-md font-medium text-gray-900">
+                      {funcionarioLeads.length} lead(s) encontrado(s)
+                    </h4>
+                  </div>
+                  
+                  <div className="grid gap-4">
+                    {funcionarioLeads.map((lead) => (
+                      <div key={lead.id} className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center space-x-2 mb-2">
+                              <h5 className="font-medium text-gray-900">{lead.nome_cliente}</h5>
+                              {lead.telefone_verificado ? (
+                                <CheckCircle className="h-4 w-4 text-green-500" />
+                              ) : (
+                                <AlertCircle className="h-4 w-4 text-red-500" />
+                              )}
+                            </div>
+                            
+                            <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                              <div>
+                                <div className="flex items-center space-x-2 mb-1">
+                                  <Mail className="h-3 w-3" />
+                                  <span>{lead.email}</span>
+                                </div>
+                                <div className="flex items-center space-x-2 mb-1">
+                                  <Phone className="h-3 w-3" />
+                                  <span>{lead.telefone}</span>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <Users className="h-3 w-3" />
+                                  <span>{lead.idade} anos • {lead.numero_familiares} familiares</span>
+                                </div>
+                              </div>
+                              
+                              <div>
+                                <div className="flex items-center space-x-2 mb-1">
+                                  <Heart className="h-3 w-3" />
+                                  <span>{getInterestLabel(lead.interesse_telemedicina)}</span>
+                                </div>
+                                <div className="flex items-center space-x-2">
+                                  <Calendar className="h-3 w-3" />
+                                  <span>{new Date(lead.created_at).toLocaleDateString('pt-BR')}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Footer do Modal */}
+            <div className="flex items-center justify-end p-6 border-t border-gray-200">
+              <button
+                onClick={closeLeadsModal}
+                className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
