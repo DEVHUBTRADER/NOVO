@@ -495,6 +495,9 @@ export function AdminPanel() {
                         Farmácia
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Responsável
+                      </th>
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Data
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -535,18 +538,11 @@ export function AdminPanel() {
                         </td>
 
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="space-y-1">
-                            <div className="flex items-center space-x-2">
-                              <Heart className="h-4 w-4 text-gray-400" />
-                              <span className="text-sm text-gray-900">
-                                {getInterestLabel(lead.interesse_telemedicina)}
-                              </span>
-                            </div>
-                            {lead.funcionario && (
-                              <div className="text-sm text-gray-500">
-                                Atendido por: {lead.funcionario.nome}
-                              </div>
-                            )}
+                          <div className="flex items-center space-x-2">
+                            <Heart className="h-4 w-4 text-gray-400" />
+                            <span className="text-sm text-gray-900">
+                              {getInterestLabel(lead.interesse_telemedicina)}
+                            </span>
                           </div>
                         </td>
 
@@ -563,6 +559,22 @@ export function AdminPanel() {
                           )}
                         </td>
 
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {lead.funcionario ? (
+                            <div>
+                              <div className="text-sm font-medium text-gray-900">
+                                {lead.funcionario.nome}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {lead.funcionario.cargo}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="text-sm text-gray-500">
+                              Não informado
+                            </div>
+                          )}
+                        </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center space-x-2">
                             <Calendar className="h-4 w-4 text-gray-400" />
